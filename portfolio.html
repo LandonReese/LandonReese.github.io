@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Landon Reese - Software Engineer projects including Kubernetes homelab, LLM orchestration, IoT automation, and more.">
+    <meta name="keywords" content="Landon Reese, Portfolio, Projects, Kubernetes, Python, Software Engineering">
+    <meta name="author" content="Landon Reese">
     <title>Portfolio | Landon Reese</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -19,28 +22,55 @@
     </nav>
 
     <div class="container">
-        <h1>My Projects</h1>
-        <p>Here are some of the things I have been working on.</p>
+        <h1><span class="prompt">$</span> My Projects</h1>
+        <p>Here are some of the projects I've been working on. Check out my <a href="https://github.com/LandonReese" target="_blank">GitHub</a> for more.</p>
 
         <div class="project-grid">
             <div class="project-card">
-                <h3>Project Title 1</h3>
-                <p>Description of the project. What problem did it solve? What tech stack did you use?</p>
-                <a href="https://github.com/landonreese" class="btn">View on GitHub</a>
+                <h3>Kubernetes Home Lab</h3>
+                <p><strong>Tech Stack:</strong> k3s, FluxCD, Kustomize, Grafana, Prometheus</p>
+                <p>Bootstrapped k3s cluster with FluxCD GitOps workflows and Kustomize overlays. Implemented NetworkPolicies, ResourceQuotas, and RBAC for security. Deployed Prometheus scraping and Grafana dashboards for cluster and application observability.</p>
+                <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
             </div>
 
             <div class="project-card">
-                <h3>Project Title 2</h3>
-                <p>Description of the project. Maybe a python script or a web app.</p>
-                <a href="https://github.com/landonreese" class="btn">View on GitHub</a>
+                <h3>Thermostat (Raspberry Pi HVAC Control)</h3>
+                <p><strong>Tech Stack:</strong> Python, I2C, systemd, TCA9548A, HDC302x</p>
+                <p>Schedule-driven HVAC control system with hysteresis logic. Reads temperature/humidity via I2C multiplexer and sensors. Packaged as systemd service with timezone-aware scheduling and anti-short-cycling protection.</p>
+                <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
             </div>
 
             <div class="project-card">
-                <h3>Project Title 3</h3>
-                <p>Description of the project.</p>
-                <a href="https://github.com/landonreese" class="btn">View on GitHub</a>
+                <h3>Council of Llamas (Multi-Agent LLM)</h3>
+                <p><strong>Tech Stack:</strong> Python, Ollama, JSON-mode, RAG</p>
+                <p>Two-stage Respond & Vote pipeline with concurrent agents using Ollama local models. Features JSON-only replies, timeouts, and optional RAG integration. Designed for clean integration with GitOps and development workflows.</p>
+                <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Book Cataloguing System</h3>
+                <p><strong>Tech Stack:</strong> PostgreSQL, Python, Google Books API, Open Library API</p>
+                <p>PostgreSQL schema for books with array fields for authors/categories. Barcode ingestion with de-duplication and automatic enrichment from Google Books and Open Library APIs. Includes GUI helpers for scanning, merging, and exporting.</p>
+                <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Nginx Server-Side Authentication</h3>
+                <p><strong>Tech Stack:</strong> Nginx, NJS, AWS EFS</p>
+                <p>Implemented request validation in Nginx using NJS (Nginx JavaScript) to protect reverse-proxied services. Uses AWS EFS for secure key/value mapping and efficient access control without external dependencies.</p>
+                <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Docker Development Environment</h3>
+                <p><strong>Tech Stack:</strong> Docker, Docker Compose, WSL</p>
+                <p>Containerized multi-service application for seamless local development. Optimized Docker images to reduce build times. Created comprehensive developer onboarding documentation to minimize setup friction.</p>
+                <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
             </div>
         </div>
+
+        <h2 style="margin-top: 3rem;"><span class="prompt">$</span> More Projects</h2>
+        <p>For additional projects and contributions, visit my <a href="https://github.com/LandonReese" target="_blank">GitHub profile</a>.</p>
     </div>
 
     <footer>
