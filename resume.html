@@ -66,10 +66,11 @@
 
     <div class="line-with-text"><div class="line"></div><div class="text">Projects</div><div class="line"></div></div>
     <ul>
-        <li><strong>Kubernetes Home Lab (k3s, FluxCD, Grafana/Prometheus)</strong>
+        <li><strong>Pi-Pan-Tilt-Camera (Raspberry Pi 5)</strong>
             <ul>
-                <li>Bootstrapped k3s with FluxCD and Kustomize overlays; namespaces for games/monitoring stacks.</li>
-                <li>Deployed Prometheus scraping and Grafana dashboards for cluster and app observability.</li>
+                <li>Web-controlled pan-tilt camera system using I2C (pantilthat) for servo control and Picamera2 for video capture.</li>
+                <li>Flask web interface with live video streaming, screenshot gallery, and smooth servo movement with thread-safe controls.</li>
+                <li>Packaged as systemd service for automatic startup; configurable pan/tilt limits and movement speed.</li>
             </ul>
         </li>
         <li><strong>Thermostat (Raspberry Pi Smart HVAC Control)</strong>
@@ -92,6 +93,12 @@
                 <li>GUI helpers for scanning, merging, exporting; DB configuration via environment variables.</li>
             </ul>
         </li>
+        <li><strong>Kubernetes Home Lab (k3s, FluxCD, Grafana/Prometheus)</strong>
+            <ul>
+                <li>Bootstrapped k3s with FluxCD and Kustomize overlays; namespaces for games/monitoring stacks.</li>
+                <li>Deployed Prometheus scraping and Grafana dashboards for cluster and app observability.</li>
+            </ul>
+        </li>
         <li><strong>Docker for Local Development</strong>
             <ul>
                 <li>Containerized multi-service app for seamless local dev; optimized images to cut build times.</li>
@@ -102,11 +109,6 @@
             <ul>
                 <li>Implemented request validation in Nginx with NJS, protecting reverse-proxied services.</li>
                 <li>Used AWS EFS for secure key/value mapping and efficient access control.</li>
-            </ul>
-        </li>
-        <li><strong>Vimeo API Integration</strong>
-            <ul>
-                <li>Embedded Vimeo content directly into platform via PHP/JS integration.</li>
             </ul>
         </li>
         <li><strong>Tenant Login Restrictions</strong>
