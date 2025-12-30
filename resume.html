@@ -44,24 +44,24 @@
         <li><strong>Korbyt — Software Engineer</strong> (Addison, TX) <em>Mar 2024 - Mar 2025</em>
             <ul>
                 <li>Delivered SaaS digital signage features and LTS fixes in Laravel/PHP for Fortune 100 customers.</li>
-                <li>Owned Azure DevOps pipelines (CI/CD), code reviews, and agile ceremonies to ship reliably.</li>
                 <li>Containerized services for local dev with Docker/WSL; cut cloud dev environment costs.</li>
                 <li>Designed server-side auth in Nginx (NJS) with secure key/value mapping on AWS EFS.</li>
-                <li>Built Vimeo API integration and Node.js data adapter (25Live) for real-time campus events.</li>
+                <li>Built REST API integration and Node.js data adapter (25Live) for real-time campus events.</li>
                 <li>Implemented tenant login restrictions (PHP/JS/PostgreSQL) to safeguard sensitive environments.</li>
-                <li>Developed regression tests for major feature releases and LTS upgrades.</li>
+                <li>Conducted regression tests for major feature releases and LTS upgrades.</li>
             </ul>
         </li>
     </ul>
 
     <div class="line-with-text"><div class="line"></div><div class="text">Technical Skills</div><div class="line"></div></div>
     <ul>
-        <li><strong>Languages/Tech:</strong> Python, PHP, JavaScript/Node.js, Bash, SQL/PostgreSQL, HTML/CSS, C/C++, C#, jQuery</li>
-        <li><strong>Frameworks/Platforms:</strong> Laravel, Express.js, Docker, Kubernetes (k3s), FluxCD, Nginx/NJS</li>
-        <li><strong>Cloud/Tools:</strong> Azure DevOps, AWS, Redis, Nginx, Git, Linux, Windows, VS Code, Postman, PgAdmin, WSL, npm/yarn/pacman/AUR</li>
-        <li><strong>Data & Observability:</strong> Grafana, Prometheus, REST APIs, PostgreSQL schema design</li>
-        <li><strong>Platform Ops:</strong> Shell scripting, CLI automation, homelab customization, service hardening</li>
-        <li><strong>AI/LLM:</strong> Ollama local models, multi-agent orchestration, JSON-mode prompting, optional RAG</li>
+        <li><strong>Core:</strong> Linux, Python, Bash, Raspberry Pi</li>
+        <li><strong>Hardware & Embedded:</strong> I2C bus, sensors, systemd, GPIO</li>
+        <li><strong>Languages:</strong> PHP, JavaScript, Node.js, SQL, HTML/CSS</li>
+        <li><strong>Frameworks & Platforms:</strong> Laravel, Express.js, Docker, Kubernetes (k3s), FluxCD, Kustomize</li>
+        <li><strong>Infrastructure & DevOps:</strong> AWS, Azure DevOps, Nginx/NJS, Git, Redis, Grafana, Prometheus</li>
+        <li><strong>Databases:</strong> PostgreSQL, REST APIs</li>
+        <li><strong>AI/LLM:</strong> Ollama, multi-agent orchestration, RAG</li>
     </ul>
 
     <div class="line-with-text"><div class="line"></div><div class="text">Projects</div><div class="line"></div></div>
@@ -69,13 +69,12 @@
         <li><strong>Kubernetes Home Lab (k3s, FluxCD, Grafana/Prometheus)</strong>
             <ul>
                 <li>Bootstrapped k3s with FluxCD and Kustomize overlays; namespaces for games/monitoring stacks.</li>
-                <li>Hardened with NetworkPolicies, ResourceQuotas, and RBAC; documented rebuild/drift recovery.</li>
                 <li>Deployed Prometheus scraping and Grafana dashboards for cluster and app observability.</li>
             </ul>
         </li>
         <li><strong>Thermostat (Raspberry Pi Smart HVAC Control)</strong>
             <ul>
-                <li>Schedule-driven control loop with hysteresis; reads temp/humidity via I2C (TCA9548A + HDC302x).</li>
+                <li>Schedule-driven control loop with hysteresis; reads temp/humidity via I2C bus.</li>
                 <li>Packaged as systemd service for automatic restart and controlled execution context.</li>
                 <li>Configurable via <code>settings.json</code> and <code>schedule.py</code> for timezone-aware triggers and anti-short-cycling.</li>
             </ul>

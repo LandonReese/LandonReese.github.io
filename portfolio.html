@@ -27,44 +27,58 @@
 
         <div class="project-grid">
             <div class="project-card">
-                <h3>Kubernetes Home Lab</h3>
+                <h3>Kubernetes Home Lab (k3s, FluxCD, Grafana/Prometheus)</h3>
                 <p><strong>Tech Stack:</strong> k3s, FluxCD, Kustomize, Grafana, Prometheus</p>
-                <p>Bootstrapped k3s cluster with FluxCD GitOps workflows and Kustomize overlays. Implemented NetworkPolicies, ResourceQuotas, and RBAC for security. Deployed Prometheus scraping and Grafana dashboards for cluster and application observability.</p>
+                <p>Bootstrapped k3s with FluxCD and Kustomize overlays; namespaces for games/monitoring stacks. Deployed Prometheus scraping and Grafana dashboards for cluster and app observability.</p>
                 <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
             </div>
 
             <div class="project-card">
-                <h3>Thermostat (Raspberry Pi HVAC Control)</h3>
-                <p><strong>Tech Stack:</strong> Python, I2C, systemd, TCA9548A, HDC302x</p>
-                <p>Schedule-driven HVAC control system with hysteresis logic. Reads temperature/humidity via I2C multiplexer and sensors. Packaged as systemd service with timezone-aware scheduling and anti-short-cycling protection.</p>
+                <h3>Thermostat (Raspberry Pi Smart HVAC Control)</h3>
+                <p><strong>Tech Stack:</strong> Python, I2C, systemd</p>
+                <p>Schedule-driven control loop with hysteresis; reads temp/humidity via I2C bus. Packaged as systemd service for automatic restart and controlled execution context. Configurable via settings.json and schedule.py for timezone-aware triggers and anti-short-cycling.</p>
                 <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
             </div>
 
             <div class="project-card">
-                <h3>Council of Llamas (Multi-Agent LLM)</h3>
-                <p><strong>Tech Stack:</strong> Python, Ollama, JSON-mode, RAG</p>
-                <p>Two-stage Respond & Vote pipeline with concurrent agents using Ollama local models. Features JSON-only replies, timeouts, and optional RAG integration. Designed for clean integration with GitOps and development workflows.</p>
+                <h3>Council of Llamas (Multi-Agent LLM Orchestration)</h3>
+                <p><strong>Tech Stack:</strong> Python, Ollama, RAG</p>
+                <p>Two-stage Respond & Vote pipeline with concurrent agents and JSON-only replies via Ollama. Built with timeouts and optional RAG toggle; integrates cleanly with GitOps/dev workflows.</p>
                 <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
             </div>
 
             <div class="project-card">
-                <h3>Book Cataloguing System</h3>
+                <h3>Book-Cataloguing (Barcode to Enriched Metadata)</h3>
                 <p><strong>Tech Stack:</strong> PostgreSQL, Python, Google Books API, Open Library API</p>
-                <p>PostgreSQL schema for books with array fields for authors/categories. Barcode ingestion with de-duplication and automatic enrichment from Google Books and Open Library APIs. Includes GUI helpers for scanning, merging, and exporting.</p>
+                <p>PostgreSQL schema for books (authors/categories arrays, identifiers, ratings, cover refs) with migrations. Barcode ingestion de-duplicates by quantity and enriches from Google Books/Open Library APIs. GUI helpers for scanning, merging, exporting; DB configuration via environment variables.</p>
                 <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
             </div>
 
             <div class="project-card">
-                <h3>Nginx Server-Side Authentication</h3>
+                <h3>Docker for Local Development</h3>
+                <p><strong>Tech Stack:</strong> Docker, WSL</p>
+                <p>Containerized multi-service app for seamless local dev; optimized images to cut build times. Wrote developer onboarding docs to reduce setup friction.</p>
+                <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Nginx Server-Side Authentication (NJS)</h3>
                 <p><strong>Tech Stack:</strong> Nginx, NJS, AWS EFS</p>
-                <p>Implemented request validation in Nginx using NJS (Nginx JavaScript) to protect reverse-proxied services. Uses AWS EFS for secure key/value mapping and efficient access control without external dependencies.</p>
+                <p>Implemented request validation in Nginx with NJS, protecting reverse-proxied services. Used AWS EFS for secure key/value mapping and efficient access control.</p>
                 <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
             </div>
 
             <div class="project-card">
-                <h3>Docker Development Environment</h3>
-                <p><strong>Tech Stack:</strong> Docker, Docker Compose, WSL</p>
-                <p>Containerized multi-service application for seamless local development. Optimized Docker images to reduce build times. Created comprehensive developer onboarding documentation to minimize setup friction.</p>
+                <h3>Vimeo API Integration</h3>
+                <p><strong>Tech Stack:</strong> PHP, JavaScript</p>
+                <p>Embedded Vimeo content directly into platform via PHP/JS integration.</p>
+                <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
+            </div>
+
+            <div class="project-card">
+                <h3>Tenant Login Restrictions</h3>
+                <p><strong>Tech Stack:</strong> PHP, JavaScript, PostgreSQL</p>
+                <p>Built permissions system in PHP/JS/PostgreSQL to restrict sensitive environment access.</p>
                 <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
             </div>
         </div>
