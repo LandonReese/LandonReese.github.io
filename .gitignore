@@ -1,0 +1,34 @@
+# --- Terraform ---
+# The local state of your infrastructure (CONTAINS SENSITIVE IDs)
+*.tfstate
+*.tfstate.*
+
+# Crash logs
+crash.log
+
+# Exclude the downloaded plugins/binaries (can be large)
+.terraform/
+.terraform.lock.hcl
+
+# Variable files that might contain passwords
+*.tfvars
+*.tfvars.json
+
+# --- Python ---
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environments
+venv/
+env/
+ENV/
+
+# --- OS Specific ---
+.DS_Store
+Thumbs.db
+
+# --- Secrets ---
+.env
+aws_credentials.txt
