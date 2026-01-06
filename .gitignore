@@ -19,6 +19,7 @@ crash.log
 __pycache__/
 *.py[cod]
 *$py.class
+*.zip
 
 # Virtual Environments
 venv/
