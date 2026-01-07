@@ -6,28 +6,59 @@
 }
 
 :root {
-    --bg-primary: #0d1117;
-    --bg-secondary: #161b22;
-    --bg-tertiary: #21262d;
-    --text-primary: #c9d1d9;
-    --text-secondary: #8b949e;
-    --accent-green: #3fb950;
-    --accent-blue: #58a6ff;
-    --accent-purple: #bc8cff;
-    --accent-orange: #ff7b72;
-    --accent-yellow: #d29922;
-    --border-color: #30363d;
-    --code-bg: #1c2128;
+    --bg-primary: #000000;
+    --bg-secondary: #001100;
+    --bg-tertiary: #002200;
+    --text-primary: #00ff00;
+    --text-secondary: #00cc00;
+    --accent-green: #00ff00;
+    --accent-cyan: #00ffff;
+    --accent-blue: #0088ff;
+    --accent-purple: #ff00ff;
+    --accent-orange: #ff8800;
+    --accent-yellow: #ffff00;
+    --border-color: #00ff00;
+    --code-bg: #001100;
+    --terminal-glow: rgba(0, 255, 0, 0.3);
+}
+
+/* CRT screen flicker */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.99; }
 }
 
 body {
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
     line-height: 1.6;
     color: var(--text-primary);
     background-color: var(--bg-primary);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+    animation: flicker 0.2s infinite;
+}
+
+/* Terminal scanlines effect */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.15),
+        rgba(0, 0, 0, 0.15) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
 }
 
 /* --- Terminal-style cursor animation --- */
@@ -36,10 +67,16 @@ body {
     51%, 100% { opacity: 0; }
 }
 
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 5px var(--accent-green), 0 0 10px var(--accent-green), 0 0 15px var(--accent-green); }
+    50% { text-shadow: 0 0 10px var(--accent-green), 0 0 20px var(--accent-green), 0 0 30px var(--accent-green); }
+}
+
 .cursor::after {
     content: '_';
     animation: blink 1s infinite;
     color: var(--accent-green);
+    text-shadow: 0 0 10px var(--accent-green);
 }
 
 /* --- Navigation Bar --- */
@@ -50,15 +87,20 @@ nav {
     justify-content: space-between;
     padding: 1rem 2rem;
     align-items: center;
-    border-bottom: 1px solid var(--border-color);
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    border-bottom: 2px solid var(--border-color);
+    font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+    box-shadow: 0 0 20px var(--terminal-glow);
+    position: relative;
+    z-index: 100;
 }
 
 .logo {
     font-size: 1.3rem;
     font-weight: bold;
     color: var(--accent-green);
-    text-shadow: 0 0 10px rgba(63, 185, 80, 0.3);
+    text-shadow: 0 0 10px var(--accent-green), 0 0 20px var(--accent-green);
+    animation: glow 2s ease-in-out infinite;
+    font-family: 'Courier New', monospace;
 }
 
 .nav-links {
@@ -74,26 +116,38 @@ nav {
 .nav-links a {
     color: var(--text-secondary);
     text-decoration: none;
-    font-weight: 500;
-    transition: all 0.3s;
+    font-weight: normal;
+    transition: all 0.2s;
     padding: 0.5rem 1rem;
-    border-radius: 4px;
+    border: 1px solid transparent;
     position: relative;
+    font-family: 'Courier New', monospace;
 }
 
 .nav-links a:hover {
     color: var(--accent-green);
     background: var(--bg-tertiary);
+    text-shadow: 0 0 10px var(--accent-green);
+    border: 1px solid var(--accent-green);
+    box-shadow: 0 0 10px var(--terminal-glow);
 }
 
 .nav-links a::before {
-    content: '> ';
+    content: '[ ';
     color: var(--accent-green);
     opacity: 0;
-    transition: opacity 0.3s;
+    transition: opacity 0.2s;
 }
 
-.nav-links a:hover::before {
+.nav-links a::after {
+    content: ' ]';
+    color: var(--accent-green);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.nav-links a:hover::before,
+.nav-links a:hover::after {
     opacity: 1;
 }
 
@@ -103,17 +157,21 @@ nav {
     margin: 2rem auto;
     padding: 2rem;
     background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    border: 2px solid var(--border-color);
+    border-radius: 0;
+    box-shadow: 0 0 30px var(--terminal-glow), inset 0 0 20px rgba(0, 255, 0, 0.1);
     flex: 1;
+    position: relative;
+    font-family: 'Courier New', monospace;
 }
 
 h1 { 
     color: var(--accent-green); 
     margin-bottom: 1rem;
     font-size: 2rem;
-    text-shadow: 0 0 10px rgba(63, 185, 80, 0.2);
+    text-shadow: 0 0 10px var(--accent-green), 0 0 20px var(--accent-green);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
 }
 
 h2 { 
@@ -121,39 +179,49 @@ h2 {
     padding-bottom: 0.5rem; 
     margin-bottom: 1.5rem; 
     margin-top: 2rem;
-    color: var(--accent-blue);
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px var(--accent-cyan);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
 }
 
 h3 {
-    color: var(--accent-purple);
+    color: var(--accent-green);
     margin-bottom: 0.75rem;
+    text-shadow: 0 0 5px var(--accent-green);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
 }
 
 p { 
     margin-bottom: 1rem;
     color: var(--text-primary);
+    font-family: 'Courier New', monospace;
 }
 
 a {
-    color: var(--accent-blue);
+    color: var(--accent-cyan);
     text-decoration: none;
-    transition: color 0.3s;
+    transition: all 0.2s;
+    text-shadow: 0 0 5px var(--accent-cyan);
 }
 
 a:hover {
     color: var(--accent-green);
+    text-shadow: 0 0 10px var(--accent-green), 0 0 20px var(--accent-green);
     text-decoration: underline;
 }
 
 /* --- Hero Section (Home Page) --- */
 .hero {
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+    background: var(--bg-secondary);
     color: var(--text-primary);
     text-align: center;
     padding: 120px 20px;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 2px solid var(--border-color);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 0 40px var(--terminal-glow);
 }
 
 .hero::before {
@@ -168,8 +236,26 @@ a:hover {
             0deg,
             transparent,
             transparent 2px,
-            rgba(63, 185, 80, 0.03) 2px,
-            rgba(63, 185, 80, 0.03) 4px
+            rgba(0, 255, 0, 0.05) 2px,
+            rgba(0, 255, 0, 0.05) 4px
+        );
+    pointer-events: none;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            transparent,
+            transparent 100px,
+            rgba(0, 255, 0, 0.02) 100px,
+            rgba(0, 255, 0, 0.02) 101px
         );
     pointer-events: none;
 }
@@ -178,9 +264,12 @@ a:hover {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: var(--accent-green);
-    text-shadow: 0 0 20px rgba(63, 185, 80, 0.5);
+    text-shadow: 0 0 20px var(--accent-green), 0 0 40px var(--accent-green), 0 0 60px var(--accent-green);
     position: relative;
     z-index: 1;
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    animation: glow 3s ease-in-out infinite;
 }
 
 .hero p {
@@ -189,6 +278,8 @@ a:hover {
     margin-bottom: 2rem;
     position: relative;
     z-index: 1;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px var(--text-secondary);
 }
 
 .hero .btn {
@@ -203,21 +294,34 @@ a:hover {
     color: var(--accent-green);
     padding: 12px 30px;
     text-decoration: none;
-    border: 1px solid var(--accent-green);
-    border-radius: 4px;
+    border: 2px solid var(--accent-green);
+    border-radius: 0;
     margin-top: 10px;
-    transition: all 0.3s;
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    transition: all 0.2s;
+    font-family: 'Courier New', monospace;
     font-weight: bold;
-    box-shadow: 0 0 10px rgba(63, 185, 80, 0.2);
+    box-shadow: 0 0 10px var(--terminal-glow);
+    text-shadow: 0 0 5px var(--accent-green);
+    position: relative;
+}
+
+.btn::before {
+    content: '[ ';
+    color: var(--accent-green);
+}
+
+.btn::after {
+    content: ' ]';
+    color: var(--accent-green);
 }
 
 .btn:hover { 
-    background: var(--accent-green);
-    color: var(--bg-primary);
-    box-shadow: 0 0 20px rgba(63, 185, 80, 0.5);
+    background: var(--bg-primary);
+    color: var(--accent-green);
+    box-shadow: 0 0 20px var(--accent-green), 0 0 40px var(--terminal-glow);
     text-decoration: none;
     transform: translateY(-2px);
+    text-shadow: 0 0 10px var(--accent-green), 0 0 20px var(--accent-green);
 }
 
 /* --- Portfolio Grid --- */
@@ -229,29 +333,36 @@ a:hover {
 }
 
 .project-card {
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
     padding: 1.5rem;
     background: var(--bg-tertiary);
-    border-radius: 8px;
-    transition: all 0.3s;
-    border-left: 3px solid var(--accent-green);
+    border-radius: 0;
+    transition: all 0.2s;
+    border-left: 4px solid var(--accent-green);
+    box-shadow: 0 0 10px var(--terminal-glow);
+    font-family: 'Courier New', monospace;
 }
 
 .project-card:hover {
-    border-left-color: var(--accent-blue);
-    box-shadow: 0 4px 15px rgba(88, 166, 255, 0.2);
+    border-left-color: var(--accent-cyan);
+    box-shadow: 0 0 20px var(--accent-cyan), 0 0 40px var(--terminal-glow);
     transform: translateY(-3px);
+    border-color: var(--accent-cyan);
 }
 
 .project-card h3 { 
     color: var(--accent-green); 
     margin-bottom: 0.75rem;
     font-size: 1.3rem;
+    text-shadow: 0 0 10px var(--accent-green);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
 }
 
 .project-card p {
     color: var(--text-secondary);
     margin-bottom: 1rem;
+    font-family: 'Courier New', monospace;
 }
 
 /* --- Code blocks --- */
@@ -259,39 +370,49 @@ code {
     background: var(--code-bg);
     color: var(--accent-green);
     padding: 0.2rem 0.4rem;
-    border-radius: 3px;
+    border-radius: 0;
     font-size: 0.9em;
     border: 1px solid var(--border-color);
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px var(--accent-green);
+    box-shadow: 0 0 5px var(--terminal-glow);
 }
 
 pre {
     background: var(--code-bg);
     padding: 1rem;
-    border-radius: 6px;
+    border-radius: 0;
     overflow-x: auto;
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
     margin: 1rem 0;
+    box-shadow: 0 0 15px var(--terminal-glow), inset 0 0 10px rgba(0, 255, 0, 0.1);
+    font-family: 'Courier New', monospace;
 }
 
 pre code {
     background: none;
     padding: 0;
     border: none;
+    color: var(--accent-green);
+    text-shadow: 0 0 5px var(--accent-green);
 }
 
 /* --- Lists --- */
 ul {
     margin-left: 1.5rem;
     margin-bottom: 1rem;
+    font-family: 'Courier New', monospace;
 }
 
 ul li {
     color: var(--text-primary);
     margin-bottom: 0.5rem;
+    text-shadow: 0 0 3px var(--text-primary);
 }
 
 ul li::marker {
     color: var(--accent-green);
+    text-shadow: 0 0 5px var(--accent-green);
 }
 
 /* --- Resume Specifics --- */
@@ -300,19 +421,23 @@ ul li::marker {
     margin-bottom: 2rem;
     padding-bottom: 1rem;
     border-bottom: 2px solid var(--accent-green);
+    font-family: 'Courier New', monospace;
 }
 
 .job-title { 
     font-weight: bold; 
     font-size: 1.1rem;
-    color: var(--accent-blue);
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px var(--accent-cyan);
+    font-family: 'Courier New', monospace;
 }
 
 .company-date { 
     color: var(--text-secondary); 
-    font-style: italic; 
+    font-style: normal; 
     margin-bottom: 0.5rem; 
     display: block;
+    font-family: 'Courier New', monospace;
 }
 
 /* --- Contact Info --- */
@@ -320,18 +445,22 @@ ul li::marker {
     text-align: center;
     padding: 1rem;
     background: var(--bg-tertiary);
-    border-radius: 6px;
+    border-radius: 0;
     margin: 1rem 0;
-    border: 1px solid var(--border-color);
+    border: 2px solid var(--border-color);
+    box-shadow: 0 0 10px var(--terminal-glow);
+    font-family: 'Courier New', monospace;
 }
 
 .contact-info a {
-    color: var(--accent-blue);
+    color: var(--accent-cyan);
     margin: 0 0.5rem;
+    text-shadow: 0 0 5px var(--accent-cyan);
 }
 
 .contact-info a:hover {
     color: var(--accent-green);
+    text-shadow: 0 0 10px var(--accent-green), 0 0 20px var(--accent-green);
 }
 
 /* --- Skills Tags --- */
@@ -346,10 +475,12 @@ ul li::marker {
     background: var(--bg-tertiary);
     color: var(--accent-green);
     padding: 0.4rem 0.8rem;
-    border-radius: 4px;
+    border-radius: 0;
     border: 1px solid var(--accent-green);
     font-size: 0.9rem;
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 0 5px var(--accent-green);
+    box-shadow: 0 0 5px var(--terminal-glow);
 }
 
 /* --- Footer --- */
@@ -359,8 +490,11 @@ footer {
     background: var(--bg-secondary);
     color: var(--text-secondary);
     margin-top: auto;
-    border-top: 1px solid var(--border-color);
+    border-top: 2px solid var(--border-color);
     font-size: 0.9rem;
+    font-family: 'Courier New', monospace;
+    box-shadow: 0 0 20px var(--terminal-glow);
+    text-shadow: 0 0 3px var(--text-secondary);
 }
 
 /* --- Responsive Design --- */
@@ -389,15 +523,44 @@ footer {
 /* --- Terminal prompt style --- */
 .prompt {
     color: var(--accent-green);
+    text-shadow: 0 0 10px var(--accent-green);
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
 }
 
 .prompt::before {
     content: '$ ';
     color: var(--accent-green);
+    text-shadow: 0 0 10px var(--accent-green);
 }
 
 /* --- Highlight important info --- */
 .highlight {
     color: var(--accent-yellow);
     font-weight: bold;
+    text-shadow: 0 0 10px var(--accent-yellow);
+    font-family: 'Courier New', monospace;
+}
+
+/* --- ASCII art terminal borders --- */
+.terminal-border {
+    border: 2px solid var(--accent-green);
+    box-shadow: 0 0 20px var(--terminal-glow);
+    position: relative;
+}
+
+.terminal-border::before {
+    content: '┌';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    color: var(--accent-green);
+}
+
+.terminal-border::after {
+    content: '┐';
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    color: var(--accent-green);
 }
