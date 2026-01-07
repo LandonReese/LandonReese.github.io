@@ -21,24 +21,56 @@
     </nav>
 
     <div class="hero">
-        <h1><span class="prompt">$</span> whoami</h1>
-        <p>Landon Reese | Software Engineer | Systems Administrator</p>
-        <p style="margin-top: 1rem; font-size: 1rem; color: var(--accent-green);">
-            <span class="prompt">$</span> cat skills.txt
-        </p>
-        <p style="font-size: 0.9rem; color: var(--text-secondary);">
-            Linux • Python • Raspberry Pi • Hardware/I2C • Kubernetes • Homelab
-        </p>
-        <br>
-        <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
-            <a href="about.html" class="btn">About Me</a>
-            <a href="resume.html" class="btn">View Resume</a>
-            <a href="portfolio.html" class="btn">View Projects</a>
+        <div class="hero-content">
+            <img src="images/profile.jpg" alt="Landon Reese" class="profile-image">
+            <h1 style="font-size: 1.5rem;"><span class="prompt">landon@linux:</span> whoami</h1>
+            <p>Landon Reese | Software Engineer | Systems Administrator</p>
+            <p style="margin-top: 1rem; font-size: 1rem; color: var(--accent-green);">
+                <span class="prompt">landon@linux:</span> cat skills.txt
+            </p>
+            <div class="description" style="text-align: left; max-width: 800px; margin: 1rem auto; font-size: 0.9rem; color: var(--text-secondary);">
+                <ul>
+                    <li>
+                        <strong>Languages:</strong>
+                        C, C++, C#, Java, JavaScript, Python, Bash, SQL, PHP, Assembly (MIPS 32)
+                    </li>
+                    <li>
+                        <strong>Frameworks & Libraries:</strong>
+                        HTML, CSS, JavaScript, Node.js, React, Express, Django, Laravel, jQuery
+                    </li>
+                    <li>
+                        <strong>Platforms & Infrastructure:</strong>
+                        AWS (S3, IAM, EFS, Lambda), Kubernetes (k3s), FluxCD, Kustomize, systemd, Raspberry Pi (I2C sensors), Nginx
+                    </li>
+                    <li>
+                        <strong>Operating Systems:</strong>
+                        Linux, macOS, Windows
+                    </li>
+                    <li>
+                        <strong>Databases & Data:</strong>
+                        PostgreSQL, SQLite, Cloudbeaver, REST APIs, Google Books & Open Library integrations
+                    </li>
+                    <li>
+                        <strong>AI/LLM Tooling:</strong>
+                        Ollama local models, multi-agent orchestration, JSON-mode prompting, RAG (Retrieval-Augmented Generation)
+                    </li>
+                    <li>
+                        <strong>Development Tools:</strong>
+                        Git, VSCode, Xcode, IntelliJ, Jupyter Notebooks, Postman
+                    </li>
+                </ul>
+            </div>
+            <br>
+            <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                <a href="about.html" class="btn">About Me</a>
+                <a href="resume.html" class="btn">View Resume</a>
+                <a href="portfolio.html" class="btn">View Projects</a>
+            </div>
         </div>
     </div>
 
     <div class="container">
-       <h2><span class="prompt">$</span> Quick Links</h2>
+       <h2><span class="prompt">landon@linux:</span> Quick Links</h2>
         <div class="project-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));">
             <div class="project-card">
                 <h3>Resume</h3>
@@ -65,7 +97,7 @@
     <footer>
         <p>&copy; 2025 Landon Reese</p>
         <p style="margin-top: 10px; font-family: monospace; color: var(--accent-green);">
-            <span class="prompt">$</span> ./visitor_counter.sh --result <span id="counter">loading...</span>
+            <span class="prompt">landon@linux:</span> ./visitor_counter.sh --result <span id="counter">loading...</span>
         </p>
     </footer>
 

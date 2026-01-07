@@ -22,68 +22,132 @@
     </nav>
 
     <div class="container">
-        <h1><span class="prompt">$</span> My Projects</h1>
+        <h1><span class="prompt">landon@linux:</span> My Projects</h1>
         <p>Here are some of the projects I've been working on. Check out my <a href="https://github.com/LandonReese" target="_blank">GitHub</a> for more.</p>
 
         <div class="project-grid">
             <div class="project-card">
-                <h3>Pi-Pan-Tilt-Camera (Raspberry Pi 5)</h3>
-                <p><strong>Tech Stack:</strong> Python, Flask, I2C, Picamera2, systemd, Raspberry Pi</p>
-                <p>Web-controlled pan-tilt camera system using I2C (pantilthat) for servo control and Picamera2 for video capture. Flask web interface with live video streaming, screenshot gallery, and smooth servo movement with thread-safe controls. Packaged as systemd service for automatic startup.</p>
-                <a href="https://github.com/LandonReese/Pi-Pan-Tilt-Camera" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
+                <div class="project-card-header">
+                    <h3>Pi-Pan-Tilt-Camera</h3>
+                </div>
+                <div class="project-card-body">
+                    <div class="project-tech-stack">
+                        <strong>Tech Stack:</strong> Python, Flask, I2C, Picamera2, systemd, Raspberry Pi
+                    </div>
+                    <p class="project-description">Web-controlled pan-tilt camera system using I2C (pantilthat) for servo control and Picamera2 for video capture. Flask web interface with live video streaming, screenshot gallery, and smooth servo movement with thread-safe controls. Packaged as systemd service for automatic startup.</p>
+                </div>
+                <div class="project-card-footer">
+                    <a href="https://github.com/LandonReese/Pi-Pan-Tilt-Camera" class="btn">View on GitHub →</a>
+                </div>
             </div>
 
             <div class="project-card">
-                <h3>Thermostat (Raspberry Pi Smart HVAC Control)</h3>
-                <p><strong>Tech Stack:</strong> Python, I2C, systemd</p>
-                <p>Schedule-driven control loop with hysteresis; reads temp/humidity via I2C bus. Packaged as systemd service for automatic restart and controlled execution context. Configurable via settings.json and schedule.py for timezone-aware triggers and anti-short-cycling.</p>
-                <a href="https://github.com/LandonReese/Thermostat" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
+                <div class="project-card-header">
+                    <h3>Thermostat</h3>
+                </div>
+                <div class="project-card-body">
+                    <div class="project-tech-stack">
+                        <strong>Tech Stack:</strong> Raspberry Pi, Python, I2C, systemd
+                    </div>
+                    <p class="project-description">Schedule-driven control loop with hysteresis; reads temp/humidity via I2C bus. Packaged as systemd service for automatic restart and controlled execution context. Configurable via settings.json and schedule.py for timezone-aware triggers and anti-short-cycling.</p>
+                </div>
+                <div class="project-card-footer">
+                    <a href="https://github.com/LandonReese/Thermostat" class="btn">View on GitHub →</a>
+                </div>
             </div>
 
             <div class="project-card">
-                <h3>Council of Llamas (Multi-Agent LLM Orchestration)</h3>
-                <p><strong>Tech Stack:</strong> Python, Ollama, RAG</p>
-                <p>Two-stage Respond & Vote pipeline with concurrent agents and JSON-only replies via Ollama. Built with timeouts and optional RAG toggle; integrates cleanly with GitOps/dev workflows.</p>
-                <a href="https://github.com/LandonReese/Council-of-Llamas" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
+                <div class="project-card-header">
+                    <h3>Council of Llamas (Multi-Agent LLM Orchestration)</h3>
+                </div>
+                <div class="project-card-body">
+                    <div class="project-tech-stack">
+                        <strong>Tech Stack:</strong> Python, Ollama, RAG
+                    </div>
+                    <p class="project-description">Two-stage Respond & Vote pipeline with concurrent agents and JSON-only replies via Ollama. Built with timeouts and optional RAG toggle; integrates cleanly with GitOps/dev workflows.</p>
+                </div>
+                <div class="project-card-footer">
+                    <a href="https://github.com/LandonReese/Council-of-Llamas" class="btn">View on GitHub →</a>
+                </div>
             </div>
 
             <div class="project-card">
-                <h3>Book-Cataloguing (Barcode to Enriched Metadata)</h3>
-                <p><strong>Tech Stack:</strong> PostgreSQL, Python, Google Books API, Open Library API</p>
-                <p>PostgreSQL schema for books (authors/categories arrays, identifiers, ratings, cover refs) with migrations. Barcode ingestion de-duplicates by quantity and enriches from Google Books/Open Library APIs. GUI helpers for scanning, merging, exporting; DB configuration via environment variables.</p>
-                <a href="https://github.com/LandonReese/Book-Cataloguing" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a>
+                <div class="project-card-header">
+                    <h3>Book-Cataloguing (Barcode to Enriched Metadata)</h3>
+                </div>
+                <div class="project-card-body">
+                    <div class="project-tech-stack">
+                        <strong>Tech Stack:</strong> PostgreSQL, Python, Google Books API, Open Library API
+                    </div>
+                    <p class="project-description">PostgreSQL schema for books (authors/categories arrays, identifiers, ratings, cover refs) with migrations. Barcode ingestion de-duplicates by quantity and enriches from Google Books/Open Library APIs. GUI helpers for scanning, merging, exporting; DB configuration via environment variables.</p>
+                </div>
+                <div class="project-card-footer">
+                    <a href="https://github.com/LandonReese/Book-Cataloguing" class="btn">View on GitHub →</a>
+                </div>
             </div>
 
             <div class="project-card">
-                <h3>Kubernetes Home Lab (k3s, FluxCD, Grafana/Prometheus)</h3>
-                <p><strong>Tech Stack:</strong> k3s, FluxCD, Kustomize, Grafana, Prometheus</p>
-                <p>Bootstrapped k3s with FluxCD and Kustomize overlays; namespaces for games/monitoring stacks. Deployed Prometheus scraping and Grafana dashboards for cluster and app observability.</p>
-                <!-- <a href="https://github.com/LandonReese" class="btn" style="margin-top: 0.5rem; display: inline-block;">View on GitHub →</a> -->
+                <div class="project-card-header">
+                    <h3>Kubernetes Home Lab</h3>
+                </div>
+                <div class="project-card-body">
+                    <div class="project-tech-stack">
+                        <strong>Tech Stack:</strong> k3s, FluxCD, Kustomize, Grafana, Prometheus
+                    </div>
+                    <p class="project-description">Bootstrapped k3s with FluxCD and Kustomize overlays; namespaces for games/monitoring stacks. Deployed Prometheus scraping and Grafana dashboards for cluster and app observability.</p>
+                </div>
+                <div class="project-card-footer">
+                    <!-- No link for this project -->
+                </div>
             </div>
 
             <div class="project-card">
-                <h3>Docker for Local Development</h3>
-                <p><strong>Tech Stack:</strong> Docker, WSL</p>
-                <p>Containerized multi-service app for seamless local dev; optimized images to cut build times. Wrote developer onboarding docs to reduce setup friction.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-secondary); font-style: italic;">Completed for Korbyt (previous employer)</p>
+                <div class="project-card-header">
+                    <h3>Docker for Local Development</h3>
+                </div>
+                <div class="project-card-body">
+                    <div class="project-tech-stack">
+                        <strong>Tech Stack:</strong> Docker, WSL
+                    </div>
+                    <p class="project-description">Containerized multi-service app for seamless local dev; optimized images to cut build times. Wrote developer onboarding docs to reduce setup friction.</p>
+                </div>
+                <div class="project-card-footer">
+                    <p class="project-footer-note">Completed for Korbyt (previous employer)</p>
+                </div>
             </div>
 
             <div class="project-card">
-                <h3>Nginx Server-Side Authentication (NJS)</h3>
-                <p><strong>Tech Stack:</strong> Nginx, NJS, AWS EFS</p>
-                <p>Implemented request validation in Nginx with NJS, protecting reverse-proxied services. Used AWS EFS for secure key/value mapping and efficient access control.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-secondary); font-style: italic;">Completed for Korbyt (previous employer)</p>
+                <div class="project-card-header">
+                    <h3>Nginx Server-Side Authentication</h3>
+                </div>
+                <div class="project-card-body">
+                    <div class="project-tech-stack">
+                        <strong>Tech Stack:</strong> Nginx, NJS, AWS EFS
+                    </div>
+                    <p class="project-description">Implemented request validation in Nginx with NJS, protecting reverse-proxied services. Used AWS EFS for secure key/value mapping and efficient access control.</p>
+                </div>
+                <div class="project-card-footer">
+                    <p class="project-footer-note">Completed for Korbyt (previous employer)</p>
+                </div>
             </div>
 
             <div class="project-card">
-                <h3>Tenant Login Restrictions</h3>
-                <p><strong>Tech Stack:</strong> PHP, JavaScript, PostgreSQL</p>
-                <p>Built permissions system in PHP/JS/PostgreSQL to restrict sensitive environment access.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-secondary); font-style: italic;">Completed for Korbyt (previous employer)</p>
+                <div class="project-card-header">
+                    <h3>Tenant Login Restrictions</h3>
+                </div>
+                <div class="project-card-body">
+                    <div class="project-tech-stack">
+                        <strong>Tech Stack:</strong> PHP, JavaScript, PostgreSQL
+                    </div>
+                    <p class="project-description">Built permissions system in PHP/JS/PostgreSQL to restrict sensitive environment access.</p>
+                </div>
+                <div class="project-card-footer">
+                    <p class="project-footer-note">Completed for Korbyt (previous employer)</p>
+                </div>
             </div>
         </div>
 
-        <h2 style="margin-top: 3rem;"><span class="prompt">$</span> More Projects</h2>
+        <h2 style="margin-top: 3rem;"><span class="prompt">landon@linux:</span> More Projects</h2>
         <p>For additional projects and contributions, visit my <a href="https://github.com/LandonReese" target="_blank">GitHub profile</a>.</p>
     </div>
 
