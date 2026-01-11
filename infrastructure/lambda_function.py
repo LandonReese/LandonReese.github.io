@@ -3,7 +3,6 @@ import json
 import time
 import os
 
-# Connect to DB
 dynamodb = boto3.resource('dynamodb')
 visitor_table = dynamodb.Table('visitor-count')
 rate_limit_table = dynamodb.Table('visitor-counter-rate-limit')
@@ -29,7 +28,6 @@ def check_rate_limit(ip_address):
         
         if 'Item' in response:
             item = response['Item']
-            # Filter old requests
             recent_requests = [t for t in item.get('request_times', []) if t > window_start]
             
             if len(recent_requests) >= MAX_REQUESTS_PER_MINUTE:
@@ -50,15 +48,12 @@ def check_rate_limit(ip_address):
         
     except Exception as e:
         print(f"Rate limit check error: {e}")
-        # SECURITY FIX: Fail Closed. If DB fails, block access.
         return False, 0 
 
 def lambda_handler(event, context):
-    # 1. Method Check
     if event.get('requestContext', {}).get('http', {}).get('method') != 'GET':
         return {'statusCode': 405, 'body': json.dumps({'error': 'Method not allowed'})}
     
-    # 2. Rate Limit Check
     client_ip = get_client_ip(event)
     allowed, count = check_rate_limit(client_ip)
     
@@ -71,7 +66,6 @@ def lambda_handler(event, context):
             'body': json.dumps({'error': 'Too many requests. Slow down.'})
         }
     
-    # 3. Business Logic
     try:
         response = visitor_table.update_item(
             Key={'id': 'count'},

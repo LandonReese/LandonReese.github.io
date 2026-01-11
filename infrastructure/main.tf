@@ -2,11 +2,10 @@ provider "aws" {
   region = "us-east-1"
 }
 
-# --- 1. Visitor Count Table (Free Tier Optimized) ---
 resource "aws_dynamodb_table" "visitor_counter" {
   name           = "visitor-count"
-  billing_mode   = "PROVISIONED" # Changed from PAY_PER_REQUEST for Free Tier
-  read_capacity  = 1             # Keep low to stay free
+  billing_mode   = "PROVISIONED"
+  read_capacity  = 1
   write_capacity = 1
   hash_key       = "id"
 
@@ -16,7 +15,6 @@ resource "aws_dynamodb_table" "visitor_counter" {
   }
 }
 
-# --- 2. Rate Limit Table ---
 resource "aws_dynamodb_table" "rate_limiter" {
   name           = "visitor-counter-rate-limit"
   billing_mode   = "PROVISIONED"
@@ -35,7 +33,6 @@ resource "aws_dynamodb_table" "rate_limiter" {
   }
 }
 
-# --- 3. Lambda Function ---
 data "archive_file" "lambda_zip" {
   type        = "zip"
   source_file = "lambda_function.py"
@@ -50,14 +47,13 @@ resource "aws_lambda_function" "update_count" {
   runtime       = "python3.9"
   source_code_hash = data.archive_file.lambda_zip.output_base64sha256
 
-  # ⚠️ ONLY UNCOMMENT IF AWS APPROVED YOUR 1000 QUOTA
-  # reserved_concurrent_executions = 5 
+
+  reserved_concurrent_executions = 5 
   
   timeout     = 10
   memory_size = 128
 }
 
-# --- 4. Permissions ---
 resource "aws_iam_role" "iam_for_lambda" {
   name = "iam_for_lambda"
   assume_role_policy = jsonencode({
