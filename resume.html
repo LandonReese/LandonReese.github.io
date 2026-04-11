@@ -1,125 +1,162 @@
 <!DOCTYPE html>
-<html>
-<style>
-    * { margin: 0; padding: 0; font-family: Arial, sans-serif; }
-    body { margin: 12px; }
-    table { width: 100%; }
-    p { font-size: 13px; }
-    ul { margin-left: 18px; list-style-type: square; font-size: 13px; }
-    .line-with-text { margin: 6px 0; display: flex; align-items: center; width: 100%; }
-    .line { flex-grow: 1; height: 2px; background-color: #000; }
-    .text { margin: 0 6px; white-space: nowrap; font-weight: 600; }
-    .header-left { font-size: 15px; text-align: left; font-weight: bold; }
-    .header-right { font-size: 15px; text-align: right; font-weight: bold; }
-    .column-left { text-align: left; }
-    .column-right { text-align: right; }
-    .name { text-align: center; font-weight: lighter; }
-    .contact { text-align: center; font-size: 12px; }
-</style>
-<head></head>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Landon Reese — Resume</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            margin: 12px;
+            font-family: Calibri, "Segoe UI", Candara, Arial, sans-serif;
+            font-size: 11pt;
+            line-height: 1.25;
+            color: #000;
+        }
+        p { font-size: 11pt; }
+        ul { margin-left: 18px; list-style-type: square; font-size: 11pt; }
+        ul ul { margin-top: 2px; margin-bottom: 4px; }
+        .section-heading { margin-top: 14px; margin-bottom: 8px; }
+        .contact + .section-heading { margin-top: 0; }
+        .section-title {
+            text-align: left;
+            font-weight: 700;
+            font-size: 11pt;
+            line-height: 1.2;
+            margin-bottom: 3px;
+        }
+        .section-line {
+            width: 100%;
+            height: 0;
+            border: none;
+            border-top: 1px solid #000;
+            margin: 0;
+        }
+        .experience-line { font-weight: 700; font-size: 11pt; margin-bottom: 2px; }
+        .experience-subline { font-size: 11pt; margin-bottom: 4px; }
+        .name { text-align: left; font-weight: 400; font-size: 22pt; margin-bottom: 4px; }
+        .contact { text-align: left; font-size: 10pt; margin-bottom: 12px; }
+        .job-gap { margin-bottom: 10px; }
+        .experience-block { margin-bottom: 10px; }
+        .project-block { margin-bottom: 10px; }
+        .project-title { font-weight: 700; font-size: 11pt; margin-bottom: 2px; }
+    </style>
+</head>
 <body>
-    <div class="name"><h1>Landon Reese</h1></div>
+    <div class="name">Landon Reese</div>
     <div class="contact">
-        <h6>(512) 954-2931 | landon.j.reese@gmail.com | linkedin.com/in/landonreese1 |
-            github.com/LandonReese</h6>
-        <h6>Austin, TX</h6>
+        Austin, TX | (512) 954-2931 | landon.j.reese@gmail.com | www.linkedin.com/in/landonreese1 | github.com/LandonReese
     </div>
 
-    <div class="line-with-text"><div class="line"></div><div class="text">Profile</div><div class="line"></div></div>
-    <p>Software Engineer, Kubernetes GitOps, and Python/LLM tooling. Recent work spans enterprise signage (Laravel/PHP), k3s home-lab with FluxCD, observability (Grafana/Prometheus), Raspberry Pi HVAC control, and multi-agent LLM orchestration.</p>
+    <div class="section-heading">
+        <div class="section-title">Professional Summary</div>
+        <hr class="section-line">
+    </div>
+    <p>Results-oriented Software Engineer with proven success in architecting scalable services and high-traffic web applications. Experienced in modernizing enterprise digital signage via Laravel/PHP and safeguarding sensitive data through tenant-level security engineering. Ability to utilize Kubernetes (k3s/FluxCD) and LLM orchestration to build automated, observable systems and hardware-level for Raspberry Pi HVAC control.</p>
 
-    <div class="line-with-text"><div class="line"></div><div class="text">Education</div><div class="line"></div></div>
-    <table>
-        <tr><td class="header-left">Texas State University</td><td class="header-right">San Marcos, TX</td></tr>
-        <tr><td class="column-left">Bachelor of Arts, Computer Science</td><td class="column-right">August 2023</td></tr>
-        <tr><td class="column-left">Honors: Magna Cum Laude</td><td class="column-right"></td></tr>
-    </table>
-    <table>
-        <tr><td class="header-left">Texas Tech University</td><td class="header-right">Lubbock, TX</td></tr>
-        <tr><td class="column-left">Bachelor of Music, Music Education</td><td class="column-right">August 2021</td></tr>
-        <tr><td class="column-left">Honors: Cum Laude</td><td class="column-right"></td></tr>
-    </table>
+    <div class="section-heading">
+        <div class="section-title">Work Experience</div>
+        <hr class="section-line">
+    </div>
 
-    <div class="line-with-text"><div class="line"></div><div class="text">Professional Experience</div><div class="line"></div></div>
-    <ul>
-        <li><strong>Korbyt — Software Engineer</strong> (Addison, TX) <em>Mar 2024 - Mar 2025</em>
-            <ul>
-                <li>Delivered SaaS digital signage features and LTS fixes in Laravel/PHP for Fortune 100 customers.</li>
-                <li>Containerized services for local dev with Docker/WSL; cut cloud dev environment costs.</li>
-                <li>Designed server-side auth in Nginx (NJS) with secure key/value mapping on AWS EFS.</li>
-                <li>Built REST API integration and Node.js data adapter (25Live) for real-time campus events.</li>
-                <li>Implemented tenant login restrictions (PHP/JS/PostgreSQL) to safeguard sensitive environments.</li>
-                <li>Conducted regression tests for major feature releases and LTS upgrades.</li>
-            </ul>
-        </li>
-    </ul>
+    <!-- <div class="experience-block job-gap">
+        <p class="experience-line">Career Note | April 2025 – Present</p>
+        <ul>
+            <li>Add reason for employment gap (e.g., took time off to focus on personal interests/family)</li>
+        </ul>
+    </div> -->
 
-    <div class="line-with-text"><div class="line"></div><div class="text">Technical Skills</div><div class="line"></div></div>
+    <div class="experience-block">
+        <p class="experience-line">Korbyt | Addison, TX</p>
+        <p class="experience-subline">Software Engineer | March 2024 – March 2025</p>
+        <ul>
+            <li>Reduced monthly cloud development environment costs by 10% by containerizing local microservices using Docker and WSL2</li>
+            <li>Safeguarded sensitive data environments for 300,000+ users by engineering tenant-level login restrictions using PHP, JS, and PostgreSQL</li>
+            <li>Enabled real-time synchronization of campus event data across enterprise scheduling systems by developing a Node.js data adapter and REST API integration for 25Live</li>
+            <li>Ensured seamless system availability for global use for Fortune 100 companies by developing and maintaining digital signage features and LTS patches using Laravel and PHP</li>
+            <li>Enforced access control for 200+ clients by engineering a server-side authentication layer using Nginx and NJS with secure key/value mappings on AWS EFS</li>
+            <li>Executed regression testing for major feature releases and LTS upgrades, identifying security-critical bugs pre-release and ensuring continuous stability for enterprise-scale software deployments</li>
+        </ul>
+    </div>
+
+    <div class="section-heading">
+        <div class="section-title">Projects</div>
+        <hr class="section-line">
+    </div>
+    <div class="project-block">
+        <div class="project-title">Pi-Pan-Tilt-Camera (Raspberry Pi 5)</div>
+        <ul>
+            <li>Configured Linux systemd service for automated startup and custom pan/tilt limits, ensuring hardware protection through software-defined speed constraints</li>
+            <li>Achieved video streaming latency for real-time remote monitoring by developing web-controlled pan-tilt camera system using I2C for servo motor precision and Picamera2</li>
+            <li>Eliminated command collisions to ensure smooth servo movement for remote users by developing thread-safe Flask interface for live video and screenshot management</li>
+        </ul>
+    </div>
+    <div class="project-block">
+        <div class="project-title">Thermostat (Raspberry Pi Smart HVAC Control)</div>
+        <ul>
+            <li>Deployed systemd service for automated restarts and controlled execution contexts, ensuring immediate recovery from unexpected process failures</li>
+            <li>Implemented schedule-driven control loop with hysteresis using I2C bus to prevent rapid hardware cycling, successfully maintaining environment temperature/humidity</li>
+        </ul>
+    </div>
+    <div class="project-block">
+        <div class="project-title">Council of Llamas (Multi-Agent LLM Orchestration)</div>
+        <ul>
+            <li>Integrated configurable request timeouts and optional RAG toggle, preventing API hanging and reducing token consumption when retrieval was unnecessary</li>
+            <li>Orchestrated two-stage Respond &amp; Vote pipeline using concurrent Ollama agents, guaranteeing schema compliance through strict JSON-only output constraints for downstream processing</li>
+        </ul>
+    </div>
+    <div class="project-block">
+        <div class="project-title">Book-Cataloguing (Barcode to Enriched Metadata)</div>
+        <ul>
+            <li>Standardized database configurations using environment variables, reducing risks of credential exposure</li>
+            <li>Improved administrative workflows by developing GUI utility helpers for scanning, merging, and exporting data</li>
+            <li>Streamlined barcode ingestion pipeline using Google Books and Open Library APIs, eliminating duplicate metadata entries</li>
+        </ul>
+    </div>
+    <div class="project-block">
+        <div class="project-title">Kubernetes Home Lab (k3s, FluxCD, Grafana/Prometheus)</div>
+        <ul>
+            <li>Automated multi-namespace deployments for gaming and monitoring stacks by orchestrating k3s cluster using FluxCD and Kustomize overlays</li>
+            <li>Provisioned Prometheus scraping and Grafana dashboards for cluster-wide observability</li>
+        </ul>
+    </div>
+    <div class="project-block">
+        <div class="project-title">Docker for Local Development</div>
+        <ul>
+            <li>Trimmed setup friction time by writing developer onboarding documentation and scripts</li>
+            <li>Containerized multi-service application for local development, reducing build times by 75% through optimized layer caching</li>
+        </ul>
+    </div>
+
+    <div class="section-heading">
+        <div class="section-title">Skills</div>
+        <hr class="section-line">
+    </div>
+    <p>Software Engineering, Regression Testing, Back-End Development, LLM Orchestration, LTS Maintenance, Access Control, Server-Side Authentication, RESTful API Design, Quality Assurance, Configuration</p>
+
+    <div class="section-heading">
+        <div class="section-title">Technologies</div>
+        <hr class="section-line">
+    </div>
     <ul>
         <li><strong>Core:</strong> Linux, Python, Bash, Raspberry Pi</li>
-        <li><strong>Hardware & Embedded:</strong> I2C bus, sensors, systemd, GPIO</li>
+        <li><strong>Hardware &amp; Embedded:</strong> I2C bus, sensors, systemd, GPIO</li>
         <li><strong>Languages:</strong> PHP, JavaScript, Node.js, SQL, HTML/CSS</li>
-        <li><strong>Frameworks & Platforms:</strong> Laravel, Express.js, Docker, Kubernetes (k3s), FluxCD, Kustomize</li>
-        <li><strong>Infrastructure & DevOps:</strong> AWS, Azure DevOps, Nginx/NJS, Git, Redis, Grafana, Prometheus</li>
+        <li><strong>Frameworks &amp; Platforms:</strong> Laravel, Express.js, Docker, Kubernetes (k3s), FluxCD, Kustomize</li>
+        <li><strong>Infrastructure &amp; DevOps:</strong> AWS, Azure DevOps, Nginx/NJS, Git, Redis, Grafana, Prometheus</li>
         <li><strong>Databases:</strong> PostgreSQL, REST APIs</li>
         <li><strong>AI/LLM:</strong> Ollama, multi-agent orchestration, RAG</li>
     </ul>
 
-    <div class="line-with-text"><div class="line"></div><div class="text">Projects</div><div class="line"></div></div>
-    <ul>
-        <li><strong>Pi-Pan-Tilt-Camera (Raspberry Pi 5)</strong>
-            <ul>
-                <li>Web-controlled pan-tilt camera system using I2C (pantilthat) for servo control and Picamera2 for video capture.</li>
-                <li>Flask web interface with live video streaming, screenshot gallery, and smooth servo movement with thread-safe controls.</li>
-                <li>Systemd service for automatic startup; configurable pan/tilt limits and movement speed.</li>
-            </ul>
-        </li>
-        <li><strong>Thermostat (Raspberry Pi Smart HVAC Control)</strong>
-            <ul>
-                <li>Schedule-driven control loop with hysteresis; reads temp/humidity via I2C bus.</li>
-                <li>Packaged as systemd service for automatic restart and controlled execution context.</li>
-                <li>Configurable via <code>settings.json</code> and <code>schedule.py</code> for timezone-aware triggers and anti-short-cycling.</li>
-            </ul>
-        </li>
-        <li><strong>Council of Llamas (Multi-Agent LLM Orchestration)</strong>
-            <ul>
-                <li>Two-stage Respond & Vote pipeline with concurrent agents and JSON-only replies via Ollama.</li>
-                <li>Built with timeouts and optional RAG toggle.</li>
-            </ul>
-        </li>
-        <li><strong>Book-Cataloguing (Barcode to Enriched Metadata)</strong>
-            <ul>
-                <li>PostgreSQL schema for books (authors/categories arrays, identifiers, ratings, cover refs) with migrations.</li>
-                <li>Barcode ingestion de-duplicates by quantity and enriches from Google Books/Open Library APIs.</li>
-                <li>GUI helpers for scanning, merging, exporting; DB configuration via environment variables.</li>
-            </ul>
-        </li>
-        <li><strong>Kubernetes Home Lab (k3s, FluxCD, Grafana/Prometheus)</strong>
-            <ul>
-                <li>Bootstrapped k3s with FluxCD and Kustomize overlays; namespaces for games/monitoring stacks.</li>
-                <li>Deployed Prometheus scraping and Grafana dashboards for cluster and app observability.</li>
-            </ul>
-        </li>
-        <li><strong>Docker for Local Development</strong>
-            <ul>
-                <li>Containerized multi-service app for seamless local dev; optimized images to cut build times.</li>
-                <li>Wrote developer onboarding docs to reduce setup friction.</li>
-            </ul>
-        </li>
-        <li><strong>Nginx Server-Side Authentication (NJS)</strong>
-            <ul>
-                <li>Implemented request validation in Nginx with NJS, protecting reverse-proxied services.</li>
-                <li>Used AWS EFS for secure key/value mapping and efficient access control.</li>
-            </ul>
-        </li>
-        <li><strong>Tenant Login Restrictions</strong>
-            <ul>
-                <li>Built permissions system in PHP/JS/PostgreSQL to restrict sensitive environment access.</li>
-            </ul>
-        </li>
-    </ul>
+    <div class="section-heading">
+        <div class="section-title">Education</div>
+        <hr class="section-line">
+    </div>
+    <p>Bachelor of Arts in Computer Science (Honors: Magna Cum Laude) | Texas State University | August 2023</p>
 
-    <div class="line-with-text"><div class="line"></div><div class="text">Achievements &amp; Affiliations</div><div class="line"></div></div>
-    <p>Drum Corps International - World Champion; Boy Scouts of America - Eagle Scout; PADI - Certified SCUBA Diver</p>
+    <div class="section-heading">
+        <div class="section-title">Professional Affiliations</div>
+        <hr class="section-line">
+    </div>
+    <p>Eagle Scout | Boy Scouts of America, PADI certified SCUBA diver, DCI World Champion</p>
 </body>
 </html>
