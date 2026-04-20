@@ -15,21 +15,29 @@
         p { font-size: 11pt; }
         ul { margin-left: 18px; list-style-type: square; font-size: 11pt; }
         ul ul { margin-top: 2px; margin-bottom: 4px; }
-        .section-heading { margin-top: 14px; margin-bottom: 8px; }
+        .section-heading {
+            margin-top: 14px;
+            margin-bottom: 8px;
+            padding-bottom: 3px;
+            border-bottom: 1px solid #000;
+        }
         .contact + .section-heading { margin-top: 0; }
         .section-title {
             text-align: left;
             font-weight: 700;
             font-size: 11pt;
             line-height: 1.2;
-            margin-bottom: 3px;
+            margin-bottom: 0;
         }
-        .section-line {
-            width: 100%;
-            height: 0;
-            border: none;
-            border-top: 1px solid #000;
-            margin: 0;
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+            .section-heading {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
         }
         .experience-line { font-weight: 700; font-size: 11pt; margin-bottom: 2px; }
         .experience-subline { font-size: 11pt; margin-bottom: 4px; }
@@ -49,13 +57,11 @@
 
     <div class="section-heading">
         <div class="section-title">Professional Summary</div>
-        <hr class="section-line">
     </div>
     <p>Results-oriented Software Engineer with proven success in architecting scalable services and high-traffic web applications. Experienced in modernizing enterprise digital signage via Laravel/PHP and safeguarding sensitive data through tenant-level security engineering. Ability to utilize Kubernetes (k3s/FluxCD) and LLM orchestration to build automated, observable systems and hardware-level for Raspberry Pi HVAC control.</p>
 
     <div class="section-heading">
         <div class="section-title">Work Experience</div>
-        <hr class="section-line">
     </div>
 
     <!-- <div class="experience-block job-gap">
@@ -69,7 +75,7 @@
         <p class="experience-line">Korbyt | Addison, TX</p>
         <p class="experience-subline">Software Engineer | March 2024 – March 2025</p>
         <ul>
-            <li>Reduced monthly cloud development environment costs by 10% by containerizing local microservices using Docker and WSL2</li>
+            <li>Reduced monthly cloud development environment costs by 10% by containerizing local microservices using Docker</li>
             <li>Safeguarded sensitive data environments for 300,000+ users by engineering tenant-level login restrictions using PHP, JS, and PostgreSQL</li>
             <li>Enabled real-time synchronization of campus event data across enterprise scheduling systems by developing a Node.js data adapter and REST API integration for 25Live</li>
             <li>Ensured seamless system availability for global use for Fortune 100 companies by developing and maintaining digital signage features and LTS patches using Laravel and PHP</li>
@@ -80,7 +86,6 @@
 
     <div class="section-heading">
         <div class="section-title">Projects</div>
-        <hr class="section-line">
     </div>
     <div class="project-block">
         <div class="project-title">Pi-Pan-Tilt-Camera (Raspberry Pi 5)</div>
@@ -129,19 +134,17 @@
 
     <div class="section-heading">
         <div class="section-title">Skills</div>
-        <hr class="section-line">
     </div>
-    <p>Software Engineering, Regression Testing, Back-End Development, LLM Orchestration, LTS Maintenance, Access Control, Server-Side Authentication, RESTful API Design, Quality Assurance, Configuration</p>
+    <p>Software Engineering, Regression Testing, Back-End Development, Go, React, Vite, LLM Orchestration, LTS Maintenance, Access Control, Server-Side Authentication, RESTful API Design, Quality Assurance, Configuration</p>
 
     <div class="section-heading">
         <div class="section-title">Technologies</div>
-        <hr class="section-line">
     </div>
     <ul>
         <li><strong>Core:</strong> Linux, Python, Bash, Raspberry Pi</li>
         <li><strong>Hardware &amp; Embedded:</strong> I2C bus, sensors, systemd, GPIO</li>
-        <li><strong>Languages:</strong> PHP, JavaScript, Node.js, SQL, HTML/CSS</li>
-        <li><strong>Frameworks &amp; Platforms:</strong> Laravel, Express.js, Docker, Kubernetes (k3s), FluxCD, Kustomize</li>
+        <li><strong>Languages:</strong> PHP, JavaScript, Node.js, Go, SQL, HTML/CSS</li>
+        <li><strong>Frameworks &amp; Platforms:</strong> Laravel, Express.js, React, Vite, Docker, Kubernetes (k3s), FluxCD, Kustomize</li>
         <li><strong>Infrastructure &amp; DevOps:</strong> AWS, Azure DevOps, Nginx/NJS, Git, Redis, Grafana, Prometheus</li>
         <li><strong>Databases:</strong> PostgreSQL, REST APIs</li>
         <li><strong>AI/LLM:</strong> Ollama, multi-agent orchestration, RAG</li>
@@ -149,13 +152,11 @@
 
     <div class="section-heading">
         <div class="section-title">Education</div>
-        <hr class="section-line">
     </div>
     <p>Bachelor of Arts in Computer Science (Honors: Magna Cum Laude) | Texas State University | August 2023</p>
 
     <div class="section-heading">
         <div class="section-title">Professional Affiliations</div>
-        <hr class="section-line">
     </div>
     <p>Eagle Scout | Boy Scouts of America, PADI certified SCUBA diver, DCI World Champion</p>
 </body>
